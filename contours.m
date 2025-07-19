@@ -1,5 +1,5 @@
 H=0.0127;
-coarseke=xlsread("finerstm.csv");
+coarseke=xlsread("finerstm.csv"); %replace with mesh and models
 x=(coarseke(:,2)/H)-15;
 y=(coarseke(:,3)/H);
 u=coarseke(:,4)/44.2;
@@ -11,6 +11,7 @@ k=coarseke(:,6)/(44.2*44.2);
 ep=(coarseke(:,10)*H)/(44.2*44.2*44.2);
 % N=size(x,1);
 
+%do one at a time
 figure(1);
 [X, Y]=meshgrid(linspace(0,12,500),linspace(0,2,500));
 F=scatteredInterpolant(x,y,ep);
